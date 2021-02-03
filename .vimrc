@@ -15,6 +15,7 @@
 " ,jp - XSM Shortucut to insert jmp line number
 
 
+let mapleader = ','
 
 " This script contains plugin specific settings
 source ~/.vim/plugins.vim
@@ -30,7 +31,6 @@ endfunction
 
 
 "-------------Mappings----------------
-let mapleader = ','
 nmap <leader>ev :tabedit $MYVIMRC<cr>
 nmap <leader><space> :nohlsearch<cr>
 inoremap jk <ESC>
