@@ -63,6 +63,10 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
+# Export PATH
+path+=('/home/bee/go/bin')
+export PATH
+
 # Aliases
 alias ll="ls -lah"
 alias la="ls -ah"

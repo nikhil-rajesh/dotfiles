@@ -30,6 +30,7 @@ Plug 'petRUShka/vim-sage'
 Plug 'airblade/vim-gitgutter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'mhinz/vim-startify'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 

@@ -32,6 +32,7 @@ endfunction
 
 "-------------Mappings----------------
 nmap <leader>ev :tabedit $MYVIMRC<cr>
+nmap <leader>ep :tabedit $HOME/.vim/plugins.vim<cr>
 nmap <leader><space> :nohlsearch<cr>
 inoremap jk <ESC>
 imap <leader>jp <C-R>=XSM_Jmp()<CR>
