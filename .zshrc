@@ -3,6 +3,20 @@
 # cat - colorized cat
 # cpv - copy with progress bar
 
+# Export PATH
+PATH="$HOME/.node/bin:$HOME/go/bin:$PATH"  
+NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
+MANPATH="$HOME/.node/share/man:$MANPATH"
+GOPATH="$HOME/go"
+export PATH
+export NODE_PATH
+export MANPATH
+export GOPATH
+
+ZSH_THEME="gallois"
+DISABLE_UPDATE_PROMPT="true"
+COMPLETION_WAITING_DOTS="true"
+
 ## Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -63,16 +77,12 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-# Export PATH
-path+=('/home/bee/go/bin')
-export PATH
-
 # Aliases
 alias ll="ls -lah"
 alias la="ls -ah"
-alias cat="bat -p"
+#alias cat="bat -p"
 alias cp="cpv"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 ## Starship Prompt ##
-eval "$(starship init zsh)"
+## eval "$(starship init zsh)"
