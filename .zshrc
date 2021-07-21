@@ -4,7 +4,7 @@
 # cpv - copy with progress bar
 
 # Export PATH
-PATH="$HOME/.node/bin:$HOME/go/bin:$PATH"  
+PATH="$HOME/.node/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
 MANPATH="$HOME/.node/share/man:$MANPATH"
 GOPATH="$HOME/go"
@@ -13,7 +13,17 @@ export NODE_PATH
 export MANPATH
 export GOPATH
 
-ZSH_THEME="gallois"
+# Preferred theme for ssh connection and local
+if [[ -n $SSH_CONNECTION ]]; then
+    ZSH_THEME="gentoo"
+else
+    ZSH_THEME="typewritten"
+fi
+
+# Typewritten theme settings
+export TYPEWRITTEN_PROMPT_LAYOUT="singleline_verbose"
+export TYPEWRITTEN_RELATIVE_PATH="adaptive"
+
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
 
@@ -32,7 +42,7 @@ setopt inc_append_history                                       # save commands 
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' rehash true                              # automatically find new executables in path
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
@@ -52,7 +62,7 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up			
+bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Path to your oh-my-zsh installation.
@@ -63,26 +73,21 @@ plugins=(git cp extract z)
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nano'
-fi
+# Set default editor as Vim
+export EDITOR='vim'
 
-if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+#if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+export TERM=xterm-256color
 
 if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+    export FZF_DEFAULT_COMMAND='rg --files'
+    export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
 # Aliases
+alias ls="lsd"
 alias ll="ls -lah"
 alias la="ls -ah"
-#alias cat="bat -p"
+alias cat="bat -p"
 alias cp="cpv"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-## Starship Prompt ##
-## eval "$(starship init zsh)"

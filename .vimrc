@@ -16,6 +16,7 @@
 
 
 let mapleader = ','
+" set list lcs=trail:·,precedes:«,extends:»
 
 " This script contains plugin specific settings
 source ~/.vim/plugins.vim
@@ -44,21 +45,26 @@ set directory=$HOME/.vim/swapfiles//                            "Swapfile direct
 set backspace=indent,eol,start					"Make backspace sane
 set autoindent
 set nu								"Numbering for lines
+set relativenumber
 set clipboard=unnamedplus                                       "User system clipboard
 set mouse=a                                                     "Use Mouse for changing split size
 
-set tabstop=8                                                   ""
+set tabstop=4                                                   ""
 set softtabstop=4                                               "Setting Tabs
 set shiftwidth=4                                                ""
-set expandtab                                                   ""
+set expandtab													""
 
 
 
 "-------------Visuals-----------------
 colorscheme dracula
 set t_CO=256							"Use 256 Colors; for terminal vim
+set cursorline
+set conceallevel=0
 syntax enable
+hi VertSplit cterm=NONE
 hi Normal ctermbg=none|						"Set same background as terminals
+
 """Different Cursor for different Modes (Konsole)
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"  "Insert Mode
@@ -101,6 +107,7 @@ nnoremap <silent> <c-right> :vertical resize +1<CR>
 augroup autosourcing
         autocmd!
         autocmd BufWritePost .vimrc source %			"Automatically Source after .vimrc edit
+        autocmd BufWritePost plugins.vim source %		"Automatically Source after plugins.vim edit
 augroup END
 augroup expl_ft
   au!
