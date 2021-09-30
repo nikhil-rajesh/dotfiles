@@ -32,8 +32,8 @@ endfunction
 
 
 "-------------Mappings----------------
-nmap <leader>ev :tabedit $MYVIMRC<cr>
-nmap <leader>ep :tabedit $HOME/.vim/plugins.vim<cr>
+nmap <leader>ev :e $MYVIMRC<cr>
+nmap <leader>ep :e $HOME/.vim/plugins.vim<cr>
 nmap <leader><space> :nohlsearch<cr>
 inoremap jk <ESC>
 imap <leader>jp <C-R>=XSM_Jmp()<CR>
@@ -57,13 +57,15 @@ set expandtab													""
 
 
 "-------------Visuals-----------------
-colorscheme dracula
+let ayucolor="mirage"
 set t_CO=256							"Use 256 Colors; for terminal vim
+set termguicolors
+colorscheme ayu
 set cursorline
 set conceallevel=0
 syntax enable
 hi VertSplit cterm=NONE
-hi Normal ctermbg=none|						"Set same background as terminals
+" hi Normal guibg=NONE ctermbg=none|						"Set same background as terminals
 
 """Different Cursor for different Modes (Konsole)
 if exists('$TMUX')
@@ -100,6 +102,21 @@ nnoremap <silent> <c-Up> :resize -1<CR>
 nnoremap <silent> <c-Down> :resize +1<CR>
 nnoremap <silent> <c-left> :vertical resize -1<CR>
 nnoremap <silent> <c-right> :vertical resize +1<CR>
+
+
+
+"-------------Buffer-Management--------
+" To open a new empty buffer
+nmap <leader>T :enew<CR>
+" Move to the previous buffer
+nmap <leader>h :bprev<CR>
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
 
 
 

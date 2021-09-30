@@ -22,7 +22,7 @@ fi
 
 # Typewritten theme settings
 export TYPEWRITTEN_PROMPT_LAYOUT="singleline_verbose"
-export TYPEWRITTEN_RELATIVE_PATH="adaptive"
+export TYPEWRITTEN_RELATIVE_PATH="git"
 
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
@@ -91,3 +91,4 @@ alias la="ls -ah"
 alias cat="bat -p"
 alias cp="cpv"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+

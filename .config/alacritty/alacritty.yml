@@ -2,18 +2,18 @@
 window:
   dimensions:
     columns: 157
-    lines: 35
+    lines: 36
 
   position:
     x: 9
-    y: 46
+    y: 9
 
   padding:
-    x: 8
-    y: 5
+    x: 0
+    y: 3
   decorations: none
     #Windowed, Maximized, Fullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
 scrolling:
   history: 10000
@@ -40,34 +40,64 @@ font:
   size: 13.0
 
 draw_bold_text_with_bright_colors: true
-background_opacity: 0.80
+background_opacity: 0.9
+
+cursor:
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Beam
 
 shell:
   program: /bin/zsh
+  # args:
+  #   - -l
+  #   - -c
+  #   - tmux attach || tmux
 colors:
-  # COLORSCHEME: dracula.yaml
+  # COLORSCHEME: ayu-mirage.yaml
+  # Default colors
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    # hard contrast: background = '0x1d2021'
+    background: '#1f2430'
+    foreground: '#cbccc6'
+    bright_foreground: '#f28779'
 
   # Normal colors
   normal:
-    black: '0x000000'
-    red: '0xff5555'
-    green: '0x50fa7b'
-    yellow: '0xf1fa8c'
-    blue: '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan: '0x8be9fd'
-    white: '0xbbbbbb'
+    black: '#212733'   #
+    red: '#f08778'     #
+    green: '#53bf97'   #
+    yellow: '#fdcc60'  #
+    blue: '#60b8d6'    # 
+    magenta: '#ec7171' #
+    cyan: '#98e6ca'    #
+    white: '#fafafa'   #
 
-  # Bright colors
+  # Brightened
   bright:
-    black: '0x555555'
-    red: '0xff5555'
-    green: '0x50fa7b'
-    yellow: '0xf1fa8c'
-    blue: '0xcaa9fa'
-    magenta: '0xff79c6'
-    cyan: '0x8be9fd'
-    white: '0xffffff'
+    black: '#686868'
+    red: '#f58c7d'
+    green: '#58c49c'
+    yellow: '#ffd165'
+    blue: '#65bddb'
+    magenta: '#f17676'
+    cyan: '#9debcf'
+    white: '#ffffff'
+  cursor:
+    text: '0x191622'
+    cursor: '0xf8f8f2'
+
+  dim:
+    black: '0x000000'
+    red: '0xa90000'
+    green: '0x049f2b'
+    yellow: '0xa3b106'
+    blue: '0x530aba'
+    magenta: '0xbb006b'
+    cyan: '0x433364'
+    white: '0x5f5f5f'

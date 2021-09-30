@@ -1,11 +1,10 @@
 "-------------Plugins-----------------
 call plug#begin('~/.vim/plugged')
 
-"
-"Colorschemes
-"
+" "Colorschemes "
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'ayu-theme/ayu-vim'
 "Plug 'arcticicestudio/nord-vim'
 
 "
@@ -17,7 +16,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'scrooloose/nerdtree-project-plugin'
 Plug 'wfxr/minimap.vim'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'universal-ctags/ctags'
@@ -34,6 +32,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'mhinz/vim-startify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'preservim/nerdcommenter'
+Plug 'psliwka/vim-smoothie'
+Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'thaerkh/vim-indentguides'
 
 call plug#end()
@@ -67,18 +68,20 @@ nmap <leader>gt :!ctags -R --exclude=node_modules<cr>
 nmap <leader>f :tag<space>
 
 "
-"NerdTree
+"NERDTree
 "
 nmap <leader>si :NERDTreeToggle<cr>
 " Remove the stupid cursorline while scrolling
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Startify | NERDTree | endif
 
 "
 "Autoformat
 "
 au BufWrite * :Autoformat
+nmap <leader>afv1 :let g:autoformat_verbosemode=1<cr>
+nmap <leader>afv0 :let g:autoformat_verbosemode=0<cr>
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
@@ -88,9 +91,9 @@ let g:autoformat_remove_trailing_spaces = 0
 "
 nmap <C-P> :Files<cr>
 nmap <C-F> :Rg<cr>
-let g:fzf_colors = {
-            \   'border' : ['bg', 'Normal'],
-            \}                              "Give the border a color
+" let g:fzf_colors = {
+"             \   'border' : ['bg', 'Normal'],
+"             \}                              "Give the border a color
 "For vim 8.1
 ""let g:fzf_layout = { 'up': '41%' }                "Moves fzf search window to the top
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }    "popup for fzf search window
@@ -114,6 +117,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 "To format text after completion
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+let g:coc_snippet_next = '<s-tab>'
 
 "
 "Airline
@@ -123,6 +127,11 @@ let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline_left_sep = "\uE0B8"
+let g:airline_right_sep = "\uE0BE"
+let g:airline_detect_modified=1
 
 "
 "Prettier
@@ -143,8 +152,31 @@ let g:indentguides_spacechar = '|'
 "GitGutter
 "
 set updatetime=100
+" Default Mappings mess with my buffer change ,h
+let g:gitgutter_map_keys = 0
 
 "
 "VimInstantMarkdown
 "
 filetype plugin on
+let g:instant_markdown_autostart = 0
+nmap <leader>mdp :InstantMarkdownPreview<cr>
+nmap <leader>mds :InstantMarkdownStop<cr>
+
+"
+"NerdCommenter
+"
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
