@@ -38,6 +38,12 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
     xbacklight -inc 10%
 
+# Screenshot
+Print
+    flameshot full -p ~/Pictures -c
+shift + Print
+    flameshot gui
+
 
 #
 # bspwm hotkeys

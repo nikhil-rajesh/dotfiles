@@ -65,7 +65,7 @@ set cursorline
 set conceallevel=0
 syntax enable
 hi VertSplit cterm=NONE
-" hi Normal guibg=NONE ctermbg=none|						"Set same background as terminals
+"hi Normal guibg=NONE ctermbg=none|						"Set same background as terminals
 
 """Different Cursor for different Modes (Konsole)
 if exists('$TMUX')

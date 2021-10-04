@@ -91,4 +91,6 @@ alias la="ls -ah"
 alias cat="bat -p"
 alias cp="cpv"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gcalme='gcalcli --config-folder ~/.gcal/personal'
+alias gcalclg='gcalcli --config-folder ~/.gcal/college'
 

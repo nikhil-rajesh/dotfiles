@@ -3,6 +3,7 @@
 #### AUTOSTART ####
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom -b
+conky -b -d
 nitrogen --restore &
 ./.config/polybar/panel.sh &
 
@@ -46,8 +47,12 @@ bspc config urgent_border_color         "#dd2727"
 #find out the name of your monitor with xrandr
 xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_eDP-1)
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+
+#### Rules ####
+bspc rule -a Brave-browser -o desktop=1
+bspc rule -a Signal -o desktop=2
+bspc rule -a Alacritty -o desktop=3
+
+# Launch Apps
+~/.config/bspwm/launchApps.sh
+
