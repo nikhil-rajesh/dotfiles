@@ -3,3 +3,4 @@
 brave &
 signal-desktop &
 alacritty &
+enpass -minimize &

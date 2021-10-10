@@ -11,6 +11,10 @@ nitrogen --restore &
 # bash ~/.config/polybar/forest/scripts/pywal.sh ~/Pictures/Wallpapers
 bash ~/.config/polybar/launch.sh --forest
 
+## Launch Gnome Keyring
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 #### MONITORS ####
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
