@@ -5,6 +5,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 picom -b
 conky -b -d
 nitrogen --restore &
+dunst &
+~/Programs/Scripts/LowBattery/battery_notify.sh &
 ./.config/polybar/panel.sh &
 
 ## Launch Polybar with random wallpaper
