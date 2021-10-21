@@ -4,8 +4,8 @@ json = require "json"
 local cs
 corner_r = 20 --> Corner Radius
 bg_colour = 0x141c21 --> Background Color
-bg_alpha = 0.45 --> Background Transparency
-font = "JetBrainsMono Nerd Font Mono:style=Medium,Regular"
+bg_alpha = 0.55 --> Background Transparency
+font = "Montserrat"
 font_size = 16
 red, green, blue, alpha = 1, 1, 1, 1
 font_slant = CAIRO_FONT_SLANT_NORMAL
@@ -33,12 +33,12 @@ function conky_main()
 
     pad = 0
     for i = 1, 10 do
-        if data[i]["date"] ~= "" then
+        if data[i]["day"] ~= "" then
             pad = pad + 8
         end
         x, y = 0, (i - 1) * 53 + pad
 
-        draw_rect(x, y)
+        draw_rect(x, y, data[i]["now"])
         draw_divider(x, y, data[i]["color"])
         write_text(x, y, data[i])
     end
@@ -59,7 +59,7 @@ function draw_divider(x, y, color)
     cr = nil
 end
 
-function draw_rect(x, y)
+function draw_rect(x, y, border)
     cr = cairo_create(cs)
 
     width, height, aspect = 500, 50, 1.0
@@ -78,6 +78,11 @@ function draw_rect(x, y)
     cairo_set_source_rgba(cr, rgb_to_r_g_b(bg_colour, bg_alpha))
     cairo_fill_preserve(cr)
 
+    if border then
+        cairo_set_source_rgb(cr, rgb_to_r_g_b("0xf54242"))
+        cairo_stroke(cr)
+    end
+
     cairo_destroy(cr)
     cr = nil
 end
@@ -89,10 +94,17 @@ function write_text(x, y, data)
     cairo_set_source_rgba(cr, red, green, blue, alpha)
 
     cairo_set_font_size(cr, 12)
-    cairo_move_to(cr, x + 30, y + 22)
-    cairo_show_text(cr, data["day"])
-    cairo_move_to(cr, x + 30, y + 37)
-    cairo_show_text(cr, data["date"])
+
+    if data["date"] == "" then
+        cairo_move_to(cr, x + 30, y + 30)
+        cairo_show_text(cr, data["day"])
+    else
+        cairo_move_to(cr, x + 30, y + 22)
+        cairo_show_text(cr, data["day"])
+        cairo_move_to(cr, x + 30, y + 37)
+        cairo_show_text(cr, data["date"])
+    end
+
     cairo_set_font_size(cr, 14)
     cairo_move_to(cr, x + 100, y + 22)
     cairo_show_text(cr, data["summary"])
