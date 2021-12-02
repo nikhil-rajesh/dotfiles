@@ -58,14 +58,22 @@ set expandtab													""
 
 "-------------Visuals-----------------
 let ayucolor="mirage"
-set t_CO=256							"Use 256 Colors; for terminal vim
+"set t_CO=256							"Use 256 Colors; for terminal vim
 set termguicolors
-colorscheme ayu
-set cursorline
-set conceallevel=0
+" colorscheme ayu
+colorscheme archery
+"set cursorline
+"set conceallevel=0
 syntax enable
 hi VertSplit cterm=NONE
 "hi Normal guibg=NONE ctermbg=none|						"Set same background as terminals
+
+" vim hardcodes background color erase even if the terminfo file does
+" not contain bce (not to mention that libvte based terminals
+" incorrectly contain bce in their terminfo files). This causes
+" incorrect background rendering when using a color theme with a
+" background color.
+let &t_ut=''
 
 """Different Cursor for different Modes (Konsole)
 if exists('$TMUX')
@@ -73,9 +81,13 @@ if exists('$TMUX')
     let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"  "Replace Mode
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"  "Normal Mode
 else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"                        "Insert Mode
-    let &t_SR = "\<Esc>]50;CursorShape=2\x7"                        "Replace Mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"                        "Normal Mode
+    " For Alacritty
+    " let &t_SI = "\<Esc>]50;CursorShape=1\x7"                        "Insert Mode
+    " let &t_SR = "\<Esc>]50;CursorShape=2\x7"                        "Replace Mode
+    " let &t_EI = "\<Esc>]50;CursorShape=0\x7"                        "Normal Mode
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[2 q"
 endif
 """Cursor settings:
 "  1 -> blinking block

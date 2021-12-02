@@ -7,7 +7,6 @@ conky -b -d
 nitrogen --restore &
 dunst &
 ~/Programs/Scripts/LowBattery/battery_notify.sh &
-./.config/polybar/panel.sh &
 
 ## Launch Polybar with random wallpaper
 # bash ~/.config/polybar/forest/scripts/pywal.sh ~/Pictures/Wallpapers
@@ -57,7 +56,7 @@ xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_eDP-1)
 #### Rules ####
 bspc rule -a Brave-browser -o desktop=1
 bspc rule -a Signal -o desktop=2
-bspc rule -a Alacritty -o desktop=3
+bspc rule -a kitty -o desktop=3
 
 # Launch Apps
 ~/.config/bspwm/launchApps.sh

@@ -76,8 +76,8 @@ export LANG=en_US.UTF-8
 # Set default editor as Vim
 export EDITOR='vim'
 
-#if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
-export TERM=xterm-256color
+if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+#export TERM=xterm-256color
 
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files'
@@ -93,4 +93,4 @@ alias cp="cpv"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gcalme='gcalcli --config-folder ~/.gcal/personal'
 alias gcalclg='gcalcli --config-folder ~/.gcal/college'
-
+alias fromscratch='vim ~/.fromscratch/content.txt'

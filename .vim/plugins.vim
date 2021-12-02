@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ayu-theme/ayu-vim'
+Plug 'flazz/vim-colorschemes'
 "Plug 'arcticicestudio/nord-vim'
 
 "
@@ -74,7 +75,8 @@ nmap <leader>si :NERDTreeToggle<cr>
 " Remove the stupid cursorline while scrolling
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Startify | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Startify | endif
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Startify | NERDTree | endif
 
 "
 "Autoformat

@@ -2,5 +2,5 @@
 
 brave &
 signal-desktop &
-alacritty &
+kitty &
 enpass -minimize &

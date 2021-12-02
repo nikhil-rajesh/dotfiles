@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # program launcher
 super + @space
@@ -13,6 +13,13 @@ super + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# Scratchpad
+
+alt + m
+    scratchpad Signal signal-desktop
+alt + s
+    scratchpad Spotify spotify 
 
 #########
 # Media #
@@ -25,6 +32,15 @@ XF86AudioMute
 # Toggle mic mute
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioPlay
+    playerctl play-pause
 
 # Change volume
 XF86Audio{Raise,Lower}Volume
@@ -153,4 +169,4 @@ super + alt + shift + {h,j,k,l}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-    bspc node -v {-20 0,0 20,0 -20,20 0}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
