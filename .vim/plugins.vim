@@ -100,6 +100,12 @@ nmap <C-F> :Rg<cr>
 ""let g:fzf_layout = { 'up': '41%' }                "Moves fzf search window to the top
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }    "popup for fzf search window
 
+
+"
+"vim-go
+"
+let g:go_fmt_command = "goimports"
+
 "
 "Coc
 "

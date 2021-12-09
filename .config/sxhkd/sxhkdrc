@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# lockscreen
+alt + shift + x
+    betterlockscreen -l dim Lock Screens
+
 # terminal emulator
 super + Return
 	kitty
