@@ -42,9 +42,9 @@ imap <leader>jp <C-R>=XSM_Jmp()<CR>
 
 "-------------Configs-----------------
 set directory=$HOME/.vim/swapfiles//                            "Swapfile directory
-set backspace=indent,eol,start					"Make backspace sane
+set backspace=indent,eol,start					                "Make backspace sane
 set autoindent
-set nu								"Numbering for lines
+set nu								                            "Numbering for lines
 set relativenumber
 set clipboard=unnamedplus                                       "User system clipboard
 set mouse=a                                                     "Use Mouse for changing split size
@@ -57,7 +57,7 @@ set expandtab													""
 
 
 "-------------Visuals-----------------
-let ayucolor="mirage"
+"let ayucolor="mirage"
 "set t_CO=256							"Use 256 Colors; for terminal vim
 set termguicolors
 " colorscheme ayu

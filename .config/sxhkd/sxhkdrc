@@ -3,8 +3,12 @@
 #
 
 # lockscreen
-alt + shift + x
+super + l
     betterlockscreen -l dim Lock Screens
+
+# Change Wallpaper
+super + shift + u
+    feh --recursive --bg-fill --randomize ~/Pictures/Wallpapers
 
 # terminal emulator
 super + Return

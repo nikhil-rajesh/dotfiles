@@ -3,4 +3,4 @@
 brave &
 signal-desktop &
 kitty &
-enpass -minimize &
+# enpass -minimize &

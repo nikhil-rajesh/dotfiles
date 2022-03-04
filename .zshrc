@@ -3,6 +3,7 @@
 # cat - colorized cat
 # cpv - copy with progress bar
 
+
 # Export PATH
 PATH="$HOME/.node/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 NODE_PATH="$HOME/.node/lib/node_modules:$NODE_PATH"
@@ -18,6 +19,7 @@ if [[ -n $SSH_CONNECTION ]]; then
     ZSH_THEME="gentoo"
 else
     ZSH_THEME="typewritten"
+    # ZSH_THEME="networks_lab"
 fi
 
 # Typewritten theme settings
@@ -94,3 +96,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gcalme='gcalcli --config-folder ~/.gcal/personal'
 alias gcalclg='gcalcli --config-folder ~/.gcal/college'
 alias fromscratch='vim ~/.fromscratch/content.txt'
+alias spotify='LD_PRELOAD=/usr/lib/spotify-adblock.so spotify'

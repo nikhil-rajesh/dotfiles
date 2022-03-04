@@ -3,10 +3,28 @@
 #### AUTOSTART ####
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom -b
+
+# Screen Widgets
 conky -b -d
-nitrogen --restore &
+
+# Background Image
+# nitrogen --restore &
+feh --recursive --bg-fill --randomize ~/Pictures/Wallpapers
+
+# Random Lockscreen Wallpaper
+betterlockscreen -u ~/Pictures/Wallpapers &
+
+# Notifications
 dunst &
+
+# KDE Connect
+kdeconnect-cli --refresh &
+
+# Low Battery Notification
 ~/Programs/Scripts/LowBattery/battery_notify.sh &
+
+# Autolock Screen and Sleep
+xautolock -time 1 -locker "betterlockscreen -l dim Lock Screens" -killtime 10 -killer "systemctl suspend" -corners +00- -cornersize 30 &
 
 ## Launch Polybar with random wallpaper
 # bash ~/.config/polybar/forest/scripts/pywal.sh ~/Pictures/Wallpapers
