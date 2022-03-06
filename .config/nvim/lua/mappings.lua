@@ -40,3 +40,10 @@ vim.api.nvim_set_keymap('n', '<leader>ss', ':SymbolsOutline<cr>', {})
 -- Renamer
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true })
+
+-- Undo Search Highlighting
+vim.api.nvim_set_keymap('n', '<leader><space>', ':nohlsearch<cr>', {})
+
+-- Force Next search term to center
+vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {})
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {})
