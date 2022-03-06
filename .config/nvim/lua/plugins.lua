@@ -17,9 +17,21 @@ return require("packer").startup(
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
 
+        -- Smooth Scrolling
+        use {
+            'karb94/neoscroll.nvim',
+            config = get_config('neoscroll')
+        }
+
         -- Change Root directorairblade/vim-rooter
         use {
             "ygm2/rooter.nvim"
+        }
+
+        use {
+            'goolord/alpha-nvim',
+            requires = { 'kyazdani42/nvim-web-devicons' },
+            config = get_config('alpha')
         }
 
         -- Material Theme
