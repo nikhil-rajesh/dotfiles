@@ -108,6 +108,11 @@ _G.packer_plugins = {
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rooter.nvim"] = {
+    loaded = true,
+    path = "/home/bee/.local/share/nvim/site/pack/packer/start/rooter.nvim",
+    url = "https://github.com/ygm2/rooter.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/bee/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -120,6 +125,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for material.nvim]], true)
 require("config/material")
 time([[Config for material.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("config/lualine")
+time([[Config for lualine.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("config/treesitter")
@@ -128,10 +137,6 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-tree.lua]], true)
 require("config/nvim-tree")
 time([[Config for nvim-tree.lua]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("config/lualine")
-time([[Config for lualine.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

@@ -1,5 +1,11 @@
 vim.g.mapleader = ','
 
+-- Open vimrc
+vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>e $MYVIMRC<CR>', {})
+
+-- Source vimrc
+vim.api.nvim_set_keymap('n', '<leader>sv', ':luafile %<CR>', {})
+
 -- Split Management
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', {})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', {})
