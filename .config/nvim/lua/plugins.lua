@@ -13,7 +13,7 @@ function get_config(name)
 end
 
 return require("packer").startup(
-    function()
+    function(use)
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
 
@@ -34,6 +34,35 @@ return require("packer").startup(
             requires = {"kyazdani42/nvim-web-devicons", opt = true},
             config = get_config("lualine")
         }
+
+        -- LSP
+        use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
+
+        -- Pictograms fro LSP completion
+        use({ "onsails/lspkind-nvim", requires = { { "famiu/bufdelete.nvim" } } })
+
+        -- Code Completion
+        use({
+            "hrsh7th/nvim-cmp",
+            requires = {
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-cmdline" },
+            { "hrsh7th/vim-vsnip" },
+            { "hrsh7th/cmp-vsnip" },
+            { "hrsh7th/vim-vsnip-integ" },
+            { "f3fora/cmp-spell" },
+            { "octaltree/cmp-look" },
+            { "hrsh7th/cmp-calc" },
+            { "hrsh7th/cmp-emoji" },
+            },
+            config = get_config("cmp"),
+        })
+
+        -- Snippets
+        use "rafamadriz/friendly-snippets"
 
         -- Well, should I explain more?
         use {
