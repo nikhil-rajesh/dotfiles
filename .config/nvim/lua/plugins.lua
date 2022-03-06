@@ -16,18 +16,30 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
+        -- Change surrond tags faster
         use "tpope/vim-repeat"
         use "tpope/vim-surround"
+        -- Change Root directorairblade/vim-rooter
+        use "ygm2/rooter.nvim"
+        -- Snippets
+        use "rafamadriz/friendly-snippets"
+
+        -- Indent blanklines (just like the name)
+        use{
+            "lukas-reineke/indent-blankline.nvim",
+            config = get_config('indent_blankline')
+        }
+
+        -- Color highligher
+        use {
+            "norcalli/nvim-colorizer.lua",
+            config = get_config("colorizer")
+        }
 
         -- Smooth Scrolling
         use {
             "karb94/neoscroll.nvim",
             config = get_config("neoscroll")
-        }
-
-        -- Change Root directorairblade/vim-rooter
-        use {
-            "ygm2/rooter.nvim"
         }
 
         use {
@@ -103,8 +115,11 @@ return require("packer").startup(
             config = get_config("cmp"),
         })
 
-        -- Snippets
-        use "rafamadriz/friendly-snippets"
+        -- Remove trailing spaces
+        use {
+            'lewis6991/spaceless.nvim',
+            config = get_config('spaceless')
+        }
 
         -- Well, should I explain more?
         use {
