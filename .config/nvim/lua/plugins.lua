@@ -64,13 +64,6 @@ return require("packer").startup(
             setup = get_config("outline"),
         }
 
-        -- Easier to rename variables
-        use{
-            "filipdutescu/renamer.nvim",
-            requires = {'nvim-lua/plenary.nvim'},
-            config = get_config("renamer")
-        }
-
         -- Automatic Bracket Closing
         use {
             "windwp/nvim-autopairs",
