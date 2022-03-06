@@ -16,11 +16,13 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
+        use "tpope/vim-repeat"
+        use "tpope/vim-surround"
 
         -- Smooth Scrolling
         use {
-            'karb94/neoscroll.nvim',
-            config = get_config('neoscroll')
+            "karb94/neoscroll.nvim",
+            config = get_config("neoscroll")
         }
 
         -- Change Root directorairblade/vim-rooter
@@ -29,15 +31,50 @@ return require("packer").startup(
         }
 
         use {
-            'goolord/alpha-nvim',
-            requires = { 'kyazdani42/nvim-web-devicons' },
-            config = get_config('alpha')
+            "goolord/alpha-nvim",
+            requires = { "kyazdani42/nvim-web-devicons" },
+            config = get_config("alpha")
         }
 
         -- Material Theme
         use {
             "marko-cerovac/material.nvim",
             config = get_config("material")
+        }
+
+        -- Git decorations thats show changed lines
+        use {
+            'lewis6991/gitsigns.nvim',
+            requires = {
+                'nvim-lua/plenary.nvim'
+            },
+            config = get_config("gitsigns")
+        }
+
+        -- Commenter
+        use {
+            'numToStr/Comment.nvim',
+            config = get_config('comment')
+        }
+
+        -- Tree to view symbols in source code
+        use{
+            "simrat39/symbols-outline.nvim",
+            cmd = { "SymbolsOutline" },
+            setup = get_config("outline"),
+        }
+
+        -- Easier to rename variables
+        use{
+            "filipdutescu/renamer.nvim",
+            requires = {'nvim-lua/plenary.nvim'},
+            config = get_config("renamer")
+        }
+
+        -- Automatic Bracket Closing
+        use {
+            "windwp/nvim-autopairs",
+            config = get_config("autopairs")
         }
 
         -- Awesome Statusline

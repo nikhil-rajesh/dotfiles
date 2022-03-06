@@ -34,3 +34,10 @@ vim.api.nvim_set_keymap('s', '<Tab>', "vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-
 vim.api.nvim_set_keymap('i', '<S-Tab>', "vsnip#jumpable(-1)   ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'", {expr = true})
 vim.api.nvim_set_keymap('s', '<S-Tab>', "vsnip#jumpable(-1)   ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'", {expr = true})
 
+-- Symbols outline
+vim.api.nvim_set_keymap('n', '<leader>ss', ':SymbolsOutline<cr>', {})
+
+-- Renamer
+vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
