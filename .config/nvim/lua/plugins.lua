@@ -134,7 +134,8 @@ return require("packer").startup(
             requires = {
                 {"nvim-lua/plenary.nvim"},
                 {"kyazdani42/nvim-web-devicons", opt = true}
-            }
+            },
+            config = get_config("telescope")
         }
 
         -- File explorer

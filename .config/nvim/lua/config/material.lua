@@ -6,9 +6,9 @@ require('material').setup {
     asyn_loading = true,
     contrast = {
         sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-        floating_windows = true, -- Enable contrast for floating windows
+        floating_windows = false, -- Enable contrast for floating windows
         non_current_windows = true, -- Enable darker background for non-current windows
-        popup_menu = true, -- Enable lighter background for the popup menu
+        popup_menu = false, -- Enable lighter background for the popup menu
     },
     italics = {
 		comments = true, -- Enable italic comments
