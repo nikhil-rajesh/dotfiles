@@ -87,13 +87,14 @@ if type rg &> /dev/null; then
 fi
 
 # Aliases
-alias ls="lsd"
-alias ll="ls -lah"
-alias la="ls -ah"
-alias cat="bat -p"
-alias cp="cpv"
+alias ls='lsd'
+alias ll='ls -lah'
+alias la='ls -ah'
+alias cat='bat -p'
+alias cp='cpv'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gcalme='gcalcli --config-folder ~/.gcal/personal'
 alias gcalclg='gcalcli --config-folder ~/.gcal/college'
 alias fromscratch='vim ~/.fromscratch/content.txt'
 alias spotify='LD_PRELOAD=/usr/lib/spotify-adblock.so spotify'
+alias vim='nvim'

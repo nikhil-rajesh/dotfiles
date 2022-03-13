@@ -12,6 +12,9 @@ vim.api.nvim_set_keymap('v', '<leader>y', '"+y', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', {noremap = true})
 vim.api.nvim_set_keymap('v', '<leader>p', '"+p', {noremap = true})
 
+-- Markdown Preview
+vim.api.nvim_set_keymap('n', '<leader>mp', '<cmd>Glow<cr>', {noremap = true})
+
 -- Split Management
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', {})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w><C-j>', {})
@@ -40,6 +43,11 @@ vim.api.nvim_set_keymap('n', '<leader>ss', ':SymbolsOutline<cr>', {})
 -- Renamer
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true })
+
+-- SnipRun
+vim.api.nvim_set_keymap('v', 'f', '<Plug>SnipRun', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>ff', '<Plug>SnipRun', {silent = true})
 
 -- Undo Search Highlighting
 vim.api.nvim_set_keymap('n', '<leader><space>', ':nohlsearch<cr>', {})

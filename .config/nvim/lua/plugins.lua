@@ -16,21 +16,45 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
-        -- Change surrond tags faster
+        -- Change surround tags faster
         use "tpope/vim-repeat"
         use "tpope/vim-surround"
-        -- Change Root directorairblade/vim-rooter
+        -- Change Root directory
         use "ygm2/rooter.nvim"
         -- Snippets
         use "rafamadriz/friendly-snippets"
+        -- Speeds up neovim
+        use "lewis6991/impatient.nvim"
+        -- Learn Vim Game
+        use "ThePrimeagen/vim-be-good"
+        -- Markdown Preview
+        use "ellisonleao/glow.nvim"
 
-        -- Indent blanklines (just like the name)
-        use{
-            "lukas-reineke/indent-blankline.nvim",
-            config = get_config('indent_blankline')
+        use {
+            "michaelb/sniprun",
+            run = "bash ./install.sh",
+            config = get_config("sniprun")
         }
 
-        -- Color highligher
+        -- Notifications
+        use {
+            "rcarriga/nvim-notify",
+            config = get_config("notify")
+        }
+
+        -- Indent blank lines (just like the name)
+        use{
+            "lukas-reineke/indent-blankline.nvim",
+            config = get_config("indent_blankline")
+        }
+
+        -- Spell Checking
+        use {
+            "lewis6991/spellsitter.nvim",
+            config = get_config("spellsitter")
+        }
+
+        -- Color highlighter
         use {
             "norcalli/nvim-colorizer.lua",
             config = get_config("colorizer")
@@ -42,6 +66,7 @@ return require("packer").startup(
             config = get_config("neoscroll")
         }
 
+        -- Dashboard
         use {
             "goolord/alpha-nvim",
             requires = { "kyazdani42/nvim-web-devicons" },
@@ -54,7 +79,7 @@ return require("packer").startup(
             config = get_config("material")
         }
 
-        -- Git decorations thats show changed lines
+        -- Git decorations that's show changed lines
         use {
             'lewis6991/gitsigns.nvim',
             requires = {
@@ -92,7 +117,7 @@ return require("packer").startup(
         -- LSP
         use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 
-        -- Pictograms fro LSP completion
+        -- Pictograms for LSP completion
         use({ "onsails/lspkind-nvim", requires = { { "famiu/bufdelete.nvim" } } })
 
         -- Code Completion
