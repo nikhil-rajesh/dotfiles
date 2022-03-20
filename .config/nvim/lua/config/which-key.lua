@@ -1,5 +1,29 @@
 local wk = require("which-key")
 
+-- Language Server Protocols
+wk.register({
+    ["<space>"] = {
+        name = "lsp",
+        e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float with diagnostic" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Set diagnostic to location list" },
+        wa = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace Folder" },
+        wr = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace Folder" },
+        wl = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Workspace Folders" },
+        D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+        rn = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename variable" },
+        ca = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+        f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Formats the buffer" },
+    },
+    gD = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
+    gd = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
+    K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Information" },
+    gi = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation" },
+    gr = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
+    ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Goto prev diagnostic" },
+    ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Goto next diagnostic" },
+    ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Show Signature Help" },
+}, { silent = true })
+
 -- Normal Mode
 wk.register({
     ["<leader>"] = {
@@ -16,7 +40,6 @@ wk.register({
         },
         y = { '"+y', "Copy to System Clipboard" },
         p = { '"+p', "Paste from System Clipboard" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename variable", silent=true },
         m = {
             name = "markdown",
             p = { "<cmd>Glow<cr>", "Markdown Preview" },
