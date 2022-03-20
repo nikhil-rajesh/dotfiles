@@ -1,5 +1,3 @@
-vim.g.mapleader = ','
-
 -- Open vimrc
 vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>e $MYVIMRC<CR>', {})
 

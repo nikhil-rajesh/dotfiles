@@ -1,5 +1,5 @@
 require('impatient').enable_profile()
 require('autocmd')
-require('mappings')
+-- require('mappings')
 require('plugins')
 require('options')

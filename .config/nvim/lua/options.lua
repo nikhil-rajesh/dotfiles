@@ -5,6 +5,9 @@ vim.o.cursorline = true -- Show cursor line
 -- Change default notification function
 vim.notify = require("notify")
 
+-- Set Leader
+vim.g.mapleader = ','
+
 -- Completion
 vim.o.completeopt = "menu,menuone,noselect"
 

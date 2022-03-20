@@ -36,6 +36,12 @@ return require("packer").startup(
             config = get_config("sniprun")
         }
 
+        -- Key bindings pop-up
+        use {
+            "folke/which-key.nvim",
+            config = get_config("which-key")
+        }
+
         -- Notifications
         use {
             "rcarriga/nvim-notify",
