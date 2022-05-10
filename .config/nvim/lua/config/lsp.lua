@@ -24,6 +24,21 @@ require'lspconfig'.sumneko_lua.setup{
     }
 }
 
+
+-- Java
+require'lspconfig'.jdtls.setup{
+    cmd = { "jdtls" },
+    init_options = {
+        workspace = "/home/bee/workspace"
+    },
+    root_dir = function(fname)
+        return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+    end,
+    flags = {
+      debounce_text_changes = 150,
+    },
+}
+
 -- HTML, CSS, JSON
 local webservers = { 'jsonls', 'cssls', 'html' }
 --Enable (broadcasting) snippet capability for completion

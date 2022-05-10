@@ -1,6 +1,7 @@
 vim.o.nu = true -- Show line numbers
 vim.o.relativenumber = true -- Relative line numbering
 vim.o.cursorline = true -- Show cursor line
+vim.o.mouse = 'a'
 
 -- Change default notification function
 vim.notify = require("notify")
@@ -23,7 +24,7 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- Rooter
-vim.g.rooter_pattern = {'composer.json', '.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt', 'init.lua'}
+vim.g.rooter_pattern = {'composer.json', '.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt', 'init.lua', 'pom.xml', 'go.mod'}
 vim.g.outermost_root = false
 
 -- Misc
