@@ -75,6 +75,11 @@ plugins=(git cp extract z)
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
+# mcfly - faster shell history search
+eval "$(mcfly init zsh)"
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_KEY_SCHEME=vim
+
 # Set default editor as Vim
 export EDITOR='vim'
 

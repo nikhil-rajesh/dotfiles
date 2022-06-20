@@ -1,6 +1,6 @@
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'angularls', 'intelephense', 'tsserver' }
+local servers = { 'clangd', 'angularls', 'intelephense', 'tsserver', 'gopls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = {
